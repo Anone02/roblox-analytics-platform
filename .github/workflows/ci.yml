@@ -38,8 +38,8 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Wait for Postgres
-        run: sleep 10
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=." >> $GITHUB_ENV
 
       - name: Run tests
         run: pytest
