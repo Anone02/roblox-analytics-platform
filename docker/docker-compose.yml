@@ -1,4 +1,4 @@
-version: "3.8"
+name: realtime-project
 
 services:
   zookeeper:
@@ -30,9 +30,9 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: roblox_db
     ports:
-      - "5432:5432"
+      - "5433:5432" # AMAN: Tidak bentrok dengan steam_db
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - roblox_pgdata:/var/lib/postgresql/data # Ganti nama volume agar unik
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   metabase:
@@ -44,4 +44,4 @@ services:
       - postgres
 
 volumes:
-  pgdata:
+  roblox_pgdata: # Nama volume yang lebih spesifik

@@ -6,6 +6,6 @@ def connect_db():
         database="roblox_db",
         user="admin",
         password="admin",
-        port=5432
+        port=5433
     )
     return conn
